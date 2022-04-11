@@ -7,9 +7,9 @@ public class Usuario {
 			private int idade;
 			
 			//metodo construtor para receber os dados do usuario
-			Usuario(String nome, int idade){
+			Usuario(String nome,int idade){
 				this.nome = nome;
-				this.idade =idade;
+				this.idade = idade;
 			}
 			
 			//getter and setters
@@ -29,4 +29,6 @@ public class Usuario {
 			public void setIdade(int idade) {
 				this.idade = idade;
 			}
+
+
 }

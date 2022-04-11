@@ -9,14 +9,19 @@ public class TestaTudoo {
 		
 		
 		boasvindas();
-		
-		System.out.println("Digite o nome: ");
+		//recebendo o nome
+		System.out.println("Digite seu nome: ");
 		String n = input.nextLine();
-		System.out.println("Digite a idade: ");
-		int i = input.nextInt();
-		
+		//verificando se o usuario nao esta digitando numeros 
+		while(!matchesOnlyText(n)) {
+			System.out.println("Você não pode inserir números no nome.");
+			System.out.println("Digite seu nome: ");
+			n = input.nextLine();
+		}
+			System.out.println("Qual sua idade?");
+			int i = input.nextInt();
 		//criando objeto com os parametros do método construtor Usuario()
-		Usuario u1 = new Usuario(n, i);
+		Usuario u1 = new Usuario(n,i);
 		//indo para a primeira pergunta
 		System.out.println("Vamos para a primeira pegunta...");
 		//perguntando se fuma
@@ -39,20 +44,20 @@ public class TestaTudoo {
 			//criando objeto para bebe
 			Pesquisaa b1 = new Pesquisaa();
 			 if (bebe == 1) {
-				 System.out.println("Quantas latas de cerveja por semana?(o ideal é 2 latas) ");
+				 System.out.println("Quantas latas de cerveja por semana?(o ideal é 2 latas)");
 				 int latas = input.nextInt();
 					System.out.println("Quantos MLs de destilado?(o ideal é 35ml)");
 					int mlsdes = input.nextInt();
-					System.out.println("Quantas taças de vinho?(o ideal é 90 ml) ");
+					System.out.println("Quantas taças de vinho?(o ideal é 90 ml)");
 					int taca = input.nextInt();
 					//puxando metodo verificabebe()
 					b1.verificabebe(latas, mlsdes, taca);
 			 }else if(bebe == 2) {
-				 naobebe = "Desse jeito evitamos o desenvolvimento de doenças crônicas, incluindo hipertensão arterial, doença cardíaca, acidente vascular cerebral, doença hepática e problemas digestivos e problemas de saúde mental causados pelo álcool incluindo depressão e ansiedade";
+				 naobebe ="Desse jeito evitamos o desenvolvimento de doenças crônicas, incluindo hipertensão arterial, doença cardíaca, acidente vascular cerebral, doença hepática e problemas digestivos, e problemas de saúde/mental causados pelo álcool,incluindo depressão e ansiedade";
 			 }
 		//indo para a terceira pegunta
 		System.out.println("Vamos para a terceira pergunta...");
-		System.out.println("Quantas horas por dia você fica nas redes sociais? ");
+		System.out.println("Quantas horas por dia você fica nas redes sociais?");
 		int horasr = input.nextInt();
 		System.out.println("É por trabalho ou lazer? '1'-lazer/'2'-trabalho");
 		int redetrab = input.nextInt();
@@ -62,7 +67,7 @@ public class TestaTudoo {
 		r1.verificaedes(horasr,redetrab);
 		//indo para a quarta pergunta
 		System.out.println("Vamos para a quarta pergunta...");
-		System.out.println("Quantas horas por dia você passa jogando jogos eletrônicos? ");
+		System.out.println("Quantas horas por dia você passa jogando jogos eletrônicos?");
 		int horasj = input.nextInt();
 		System.out.println("É por trabalho ou lazer? '1'-lazer/'2'-trabalho");
 		int jogostrab = input.nextInt();
@@ -80,7 +85,7 @@ public class TestaTudoo {
 			System.out.println("Feedaback sobre beber");
 			System.out.println(naobebe);
 		}else {
-			System.out.println("Voce digitou uma opcao invalida por isso nao fizemos nenhuma verificacao(beber)");
+			System.out.println("Você digitou uma opção inválida por isso não fizemos nenhuma verificação(beber)");
 		}
 		System.out.println();
 		r1.respostaredes();
@@ -88,8 +93,14 @@ public class TestaTudoo {
 		j1.respostajogos();
 		
 input.close();
+
 }
 	
+	
+	public static boolean matchesOnlyText(String text) {
+	    return text.matches("[a-zA-Z\\s]+");
+	}
+
 	static void boasvindas() {
 		System.out.println("=============================================================");
 		System.out.println("====                                                      ===");
